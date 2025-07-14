@@ -27,10 +27,6 @@ The dataset used in this project is a cleaned version of the popular [Kaggle cre
 - `xgboost` – for high-performance classification
 - `matplotlib`, `seaborn` – for data visualization
 - `joblib` – to save trained model and scaler
-- **Power BI** – for building interactive dashboards
 - Excel – used for previewing and cleaning initial data
 
 ---
-
-## ⚙️ Project Structure
-
