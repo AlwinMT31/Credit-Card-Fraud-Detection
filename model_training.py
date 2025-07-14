@@ -1,15 +1,15 @@
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
+from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, RocCurveDisplay
+import matplotlib.pyplot as plt
 
-# Logistic Regression
-lr_model = LogisticRegression()
-lr_model.fit(X_train, y_train)
+# Predict using XGBoost
+y_pred = xgb_model.predict(X_test)
 
-# Random Forest
-rf_model = RandomForestClassifier()
-rf_model.fit(X_train, y_train)
+# Evaluation Metrics
+print("Classification Report:\n", classification_report(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("ROC-AUC Score:", roc_auc_score(y_test, y_pred))
 
-# XGBoost
-xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
-xgb_model.fit(X_train, y_train)
+# ROC Curve
+RocCurveDisplay.from_estimator(xgb_model, X_test, y_test)
+plt.title("ROC Curve - XGBoost")
+plt.show()
